@@ -1,0 +1,23 @@
+1: package com.mindviewinc.chapter18.sample;
+2: 
+3: import java.io.BufferedReader;
+4: import java.io.IOException;
+5: import java.io.PrintWriter;
+6: import java.io.StringReader;
+7: 
+8: public class FileOutputShortcut {
+9: 	static String file = "src/com/mindviewinc/chapter18/sample/FileOutputShortcut.out";
+10: 
+11: 	public static void main(String[] args) throws IOException {
+12: 		BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("src/com/mindviewinc/chapter18/sample/FileOutputShortcut.java")));
+13: 		// Here¡¯s the shortcut:
+14: 		PrintWriter out = new PrintWriter(file);
+15: 		int lineCount = 1;
+16: 		String s;
+17: 		while ((s = in.readLine()) != null)
+18: 			out.println(lineCount++ + ": " + s);
+19: 		out.close();
+20: 		// Show the stored file:
+21: 		System.out.println(BufferedInputFile.read(file));
+22: 	}
+23: }
